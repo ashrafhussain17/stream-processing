@@ -6,6 +6,8 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
     ports:
       - "2181:2181"
+    networks:
+      - my_network
 
   kafka1:
     image: confluentinc/cp-kafka:latest
@@ -19,6 +21,8 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka1:9092
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    networks:
+      - my_network
 
   kafka2:
     image: confluentinc/cp-kafka:latest
@@ -32,6 +36,8 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:9092
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    networks:
+      - my_network
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
@@ -41,3 +47,8 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka1:9092,kafka2:9092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    networks:
+      - my_network
+
+networks:
+  my_network:
