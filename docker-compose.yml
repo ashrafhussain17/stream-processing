@@ -1,4 +1,6 @@
-version: '3.8'
+# Docker compose file format 3.7 Required Docker Engine 18.06.0+
+# For more information see: https://docs.docker.com/compose/compose-file/compose-versioning/
+version: '3.7'
 
 services:
 
@@ -12,10 +14,10 @@ services:
     # Just in case Zookeeper isn't up yet restart
     restart: always
     environment:
-      # KAFKA_ADVERTISED_LISTENERS: comma-separated list of listeners with their the host/ip and port.
+      # KAFKA_ADVERTISED_LISTENERS: comma-separated list of listeners with they're the host/ip and port.
       # This is the metadata that’s passed back to clients.
-      # LISTENER_DOCKER_INTERNAL: This will make Kafka accessible from outside of the Docker network (your machine) port: 9092.
-      # LISTENER_DOCKER_EXTERNAL: This will make Kafka accessible to other Docker containers by advertising it’s
+      # LISTENER_DOCKER_INTERNAL: This will make Kafka accessible from outside the Docker network (your machine) port: 9092.
+      # LISTENER_DOCKER_EXTERNAL: This will make Kafka accessible to other Docker containers by advertising its
       # location on the Docker network port: 29092
       KAFKA_LISTENERS: LISTENER_DOCKER_INTERNAL://:29092,LISTENER_DOCKER_EXTERNAL://:9092
       KAFKA_ADVERTISED_LISTENERS: LISTENER_DOCKER_INTERNAL://kafka:29092,LISTENER_DOCKER_EXTERNAL://localhost:9092
