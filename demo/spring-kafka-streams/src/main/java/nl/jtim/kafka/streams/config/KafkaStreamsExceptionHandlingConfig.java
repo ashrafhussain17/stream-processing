@@ -20,7 +20,7 @@ import java.util.function.BiFunction;
 public class KafkaStreamsExceptionHandlingConfig {
 
     private static final BiFunction<ConsumerRecord<?, ?>, Exception, TopicPartition>
-        CUSTOM_DESTINATION_RESOLVER = (cr, e) -> new TopicPartition(cr.topic() + ".DEAD_LETTER_TOPIC", cr.partition());
+            CUSTOM_DESTINATION_RESOLVER = (cr, e) -> new TopicPartition(cr.topic() + ".DEAD_LETTER_TOPIC", cr.partition());
 
     @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     public KafkaStreamsConfiguration kStreamsConfigs(KafkaProperties kafkaProperties, DeadLetterPublishingRecoverer deadLetterPublishingRecoverer) {

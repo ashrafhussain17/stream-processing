@@ -16,6 +16,8 @@ public abstract class AbstractRandomStockQuoteGenerator {
     private static final String STOCK_EXCHANGE_NEW_YORK = "NYSE";
     private static final String STOCK_EXCHANGE_AMSTERDAM = "AMS";
 
+    private static final String DSE = "DSE";
+
     private static final String CURRENCY_EURO = "EUR";
     private static final String CURRENCY_US_DOLLAR = "USD";
 
@@ -27,6 +29,7 @@ public abstract class AbstractRandomStockQuoteGenerator {
             new RandomStockQuoteGenerator.Instrument("INGA", STOCK_EXCHANGE_AMSTERDAM, CURRENCY_EURO),
             new RandomStockQuoteGenerator.Instrument("AD", STOCK_EXCHANGE_AMSTERDAM, CURRENCY_EURO),
             new RandomStockQuoteGenerator.Instrument("RDSA", STOCK_EXCHANGE_AMSTERDAM, CURRENCY_EURO),
+            new RandomStockQuoteGenerator.Instrument("BSC", DSE, "BDT"),
             new RandomStockQuoteGenerator.Instrument("KO", STOCK_EXCHANGE_NEW_YORK, CURRENCY_US_DOLLAR));
     }
 

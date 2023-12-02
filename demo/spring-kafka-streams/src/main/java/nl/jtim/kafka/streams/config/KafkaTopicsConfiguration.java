@@ -17,25 +17,25 @@ public class KafkaTopicsConfiguration {
     @Bean
     public NewTopic stockQuotes() {
         return TopicBuilder.name(STOCK_QUOTES_TOPIC_NAME)
-            .build();
+                .build();
     }
 
     @Bean
     public NewTopic stockQuotesNyse() {
         return TopicBuilder.name(STOCK_QUOTES_EXCHANGE_NYSE_TOPIC_NAME)
-            .build();
+                .build();
     }
 
     @Bean
     public NewTopic stockQuotesNasdaq() {
         return TopicBuilder.name(STOCK_QUOTES_EXCHANGE_NASDAQ_TOPIC_NAME)
-            .build();
+                .build();
     }
 
     @Bean
     public NewTopic stockQuotesAmsterdam() {
         return TopicBuilder.name(STOCK_QUOTES_EXCHANGE_OTHER_TOPIC_NAME)
-            .build();
+                .build();
     }
 
 

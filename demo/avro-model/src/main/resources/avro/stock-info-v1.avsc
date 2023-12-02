@@ -1,0 +1,68 @@
+{
+  "namespace": "nl.jtim.spring.kafka.avro.stock.quote",
+  "type": "record",
+  "name": "StockData",
+  "version": 1,
+  "doc": "Avro schema for stock data.",
+  "fields": [
+    {
+      "name": "stockCode",
+      "type": "string",
+      "doc": "The code identifying the stock."
+    },
+    {
+      "name": "data",
+      "type": {
+        "type": "record",
+        "name": "StockInfo",
+        "fields": [
+          {
+            "name": "BUY",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "record",
+                "name": "BuyData",
+                "fields": [
+                  {
+                    "name": "price",
+                    "type": "double",
+                    "doc": "The price of the stock for buying."
+                  },
+                  {
+                    "name": "quantity",
+                    "type": "int",
+                    "doc": "The quantity of stock available for buying."
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "SELL",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "record",
+                "name": "SellData",
+                "fields": [
+                  {
+                    "name": "price",
+                    "type": "double",
+                    "doc": "The price of the stock for selling."
+                  },
+                  {
+                    "name": "quantity",
+                    "type": "int",
+                    "doc": "The quantity of stock available for selling."
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "doc": "Information about the stock data."
+    }
+  ]
+}
